@@ -134,3 +134,9 @@ A medical imaging analysis platform leveraging AI for pneumonia detection with e
 - 🐳 Dockerized deployment for scalability
 - 🧠 Extended support for CT and MRI modalities
 - 🔄 Enhanced chatbot session memory for improved context retention
+
+### Interface
+![WhatsApp Image 2025-04-25 at 10 05 29_724ade64](https://github.com/user-attachments/assets/77834713-96f7-4863-9e99-db03c4159835)
+
+### Output:
+![WhatsApp Image 2025-04-25 at 10 24 48_a4fb3434](https://github.com/user-attachments/assets/991f670c-9844-434b-a12a-c12025a612ce)
