@@ -42,3 +42,17 @@ A Flask-powered web prototype for medical image analysis, combining Vision Trans
 1. Start the server:  
    ```bash
    flask run
+
+2. Browse to http://127.0.0.1:5000/upload
+
+3. Upload a scan → view prediction, overlay, and chatbot analysis on /view
+
+Frontend (HTML/CSS/Bootstrap)
+        ↓
+   Flask Backend
+   • Upload endpoint
+   • DICOM → PNG conversion
+   • Model inference & XAI
+   • Chatbot calls
+        ↓
+ ViT Pneumonia Model + Captum XAI
