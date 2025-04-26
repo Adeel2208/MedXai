@@ -114,39 +114,3 @@ MedXAI/
     ├── view.html           # Image analysis view
     └── about.html          # About page
 
-## Model & XAI Details
-
-### Base Model
-- **Model**: Google Vision Transformer (`google/vit-base-patch16-224`)
-- **Fine-tuning**: Trained for binary classification (Normal vs. Pneumonia)
-
-### Explainability
-- **Method**: Integrated Gradients (via Captum)
-- **Output**: Pixel-level saliency maps highlighting regions contributing to predictions
-
-### Preprocessing
-- **Image Size**: Resize to 224×224 pixels
-- **Normalization**: Adjust to model's expected mean and standard deviation
-
-## Chatbot Integration
-
-### Agent
-- **Model**: AGNO Gemini (`gemini-2.0-flash-exp`)
-
-### Prompt Workflow
-1. **Image Modality & Region**: Identify imaging type and anatomical focus
-2. **Key Findings**: Summarize critical observations
-3. **Diagnostic Assessment**: Provide AI-driven diagnosis
-4. **Patient-Friendly Explanation**: Simplify findings for non-experts
-5. **Research Context**: Incorporate recent medical literature (via DuckDuckGo)
-
-### Tools
-- **Search**: DuckDuckGo for up-to-date medical literature
-
-## Future Improvements
-- 🖼️ Support for multi-slice 3D DICOM series
-- 📋 PDF report generation and download
-- 🔒 User authentication and audit trail
-- 🐳 Dockerized deployment for scalability
-- 🧠 Extended support for CT and MRI modalities
-- 🔄 Enhanced chatbot session memory for improved context retention
