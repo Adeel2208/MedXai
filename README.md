@@ -60,69 +60,30 @@ python -m venv .venv
 # macOS/Linux
 source .venv/bin/activate
 
-# Install
-pip install --upgrade pip
-pip install -r requirements.txt
+---
 
-Configuration
-Place model.safetensors in project root.
+## Usage
 
-Set your Google API key in app.py:
+1. Ensure you have placed your `model.safetensors` in the project root.  
+2. In `app.py`, set your Google API key:
 
-os.environ["GOOGLE_API_KEY"] = "YOUR_GOOGLE_API_KEY"
-Usage
-bash
-Copy
-Edit
-export FLASK_APP=app.py     # macOS/Linux
-set FLASK_APP=app.py        # Windows
-flask run
-/upload – Upload and analyze a scan
+   ```python
+   os.environ["GOOGLE_API_KEY"] = "YOUR_GOOGLE_API_KEY"
 
-/view – See original image, XAI overlay, prediction, and chatbot report
-
-Project Structure
-csharp
-Copy
-Edit
 MedXAI/
-├── app.py
-├── model.safetensors
-├── requirements.txt
-├── static/
+├── app.py                  # Main application script
+├── model.safetensors       # Pre-trained model weights
+├── requirements.txt        # Project dependencies
+├── static/                 # Static assets
 │   ├── css/
-│   │   └── styles.css
+│   │   └── styles.css      # CSS styles
 │   └── images/
-│       ├── ai.jpg
-│       └── logo.png
-└── templates/
-    ├── base.html
-    ├── index.html
-    ├── upload.html
-    ├── view.html
-    └── about.html
-Model & XAI Details
-Base Model: google/vit-base-patch16-224 fine-tuned for pneumonia (2 classes).
-
-XAI: Integrated Gradients (Captum) → per-pixel saliency maps.
-
-Chatbot Integration
-Agent: AGNO Gemini(id="gemini-2.0-flash-exp")
-
-Prompt: One-shot medical analysis (modality, findings, diagnosis, patient-friendly explainer, references).
-
-Tools: DuckDuckGo for recent literature search.
-
-Future Improvements
-Multi-slice DICOM support
-
-Generate & download PDF reports
-
-User authentication & audit trails
-
-Dockerized deployment
-
-Support CT/MRI modalities
-
-Enhanced chatbot context handling
-
+│       ├── ai.jpg          # AI-related imagery
+│       ├── logo.png        # Project logo
+│       └── architecture.png # Model architecture diagram
+└── templates/              # HTML templates
+├── base.html           # Base template
+├── index.html          # Homepage
+├── upload.html         # Image upload page
+├── view.html           # Image analysis view
+└── about.html          # About page
