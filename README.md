@@ -47,12 +47,82 @@ A Flask-powered web prototype for medical image analysis, combining Vision Trans
 
 3. Upload a scan → view prediction, overlay, and chatbot analysis on /view
 
-Frontend (HTML/CSS/Bootstrap)
-        ↓
-   Flask Backend
-   • Upload endpoint
-   • DICOM → PNG conversion
-   • Model inference & XAI
-   • Chatbot calls
-        ↓
- ViT Pneumonia Model + Captum XAI
+![image](https://github.com/user-attachments/assets/59681aad-594a-41da-8228-2ed1f5efe8ec)
+
+# Clone
+git clone https://github.com/<your-username>/MedXAI.git
+cd MedXAI
+
+# Virtual environment
+python -m venv .venv
+# Windows
+.venv\Scripts\activate
+# macOS/Linux
+source .venv/bin/activate
+
+# Install
+pip install --upgrade pip
+pip install -r requirements.txt
+
+Configuration
+Place model.safetensors in project root.
+
+Set your Google API key in app.py:
+
+os.environ["GOOGLE_API_KEY"] = "YOUR_GOOGLE_API_KEY"
+Usage
+bash
+Copy
+Edit
+export FLASK_APP=app.py     # macOS/Linux
+set FLASK_APP=app.py        # Windows
+flask run
+/upload – Upload and analyze a scan
+
+/view – See original image, XAI overlay, prediction, and chatbot report
+
+Project Structure
+csharp
+Copy
+Edit
+MedXAI/
+├── app.py
+├── model.safetensors
+├── requirements.txt
+├── static/
+│   ├── css/
+│   │   └── styles.css
+│   └── images/
+│       ├── ai.jpg
+│       └── logo.png
+└── templates/
+    ├── base.html
+    ├── index.html
+    ├── upload.html
+    ├── view.html
+    └── about.html
+Model & XAI Details
+Base Model: google/vit-base-patch16-224 fine-tuned for pneumonia (2 classes).
+
+XAI: Integrated Gradients (Captum) → per-pixel saliency maps.
+
+Chatbot Integration
+Agent: AGNO Gemini(id="gemini-2.0-flash-exp")
+
+Prompt: One-shot medical analysis (modality, findings, diagnosis, patient-friendly explainer, references).
+
+Tools: DuckDuckGo for recent literature search.
+
+Future Improvements
+Multi-slice DICOM support
+
+Generate & download PDF reports
+
+User authentication & audit trails
+
+Dockerized deployment
+
+Support CT/MRI modalities
+
+Enhanced chatbot context handling
+
